@@ -15,6 +15,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Account } from "@/types"
 import { Edit, Filter, Plus, Search, Trash2 } from "lucide-react"
 import { useState } from "react"
 
@@ -53,7 +54,7 @@ export default function AccountsPage() {
     return matchesSearch && matchesType
   })
 
-  const handleAddAccount = (accountData) => {
+  const handleAddAccount = (accountData:Account) => {
     const newAccount = {
       id: accounts.length + 1,
       ...accountData,
@@ -63,13 +64,13 @@ export default function AccountsPage() {
     setIsDialogOpen(false)
   }
 
-  const handleEditAccount = (account) => {
+  const handleEditAccount = (account:Account) => {
     setEditingAccount(account)
     setIsDialogOpen(true)
   }
 
-  const handleUpdateAccount = (accountData) => {
-    setAccounts(accounts.map((acc) => (acc.id === editingAccount.id ? { ...acc, ...accountData } : acc)))
+  const handleUpdateAccount = (accountData:Account) => {
+    setAccounts(accounts.map((acc) => (acc.id === editingAccount?.id ? { ...acc, ...accountData } : acc)))
     setEditingAccount(null)
     setIsDialogOpen(false)
   }

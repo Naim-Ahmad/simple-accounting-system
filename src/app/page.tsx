@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { BookOpen, DollarSign, FileText, TrendingUp } from "lucide-react"
+import { BookOpen, FileText, TrendingUp, DollarSign } from "lucide-react"
 
 export default function Dashboard() {
   const stats = [
@@ -40,22 +40,22 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
-        <p className="text-muted-foreground mt-2">Welcome to your accounting system overview</p>
+        <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
+        <p className="text-gray-600 mt-2">Welcome to your accounting system overview</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
           <Card key={index} className="hover:shadow-lg transition-shadow">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">{stat.title}</CardTitle>
+              <CardTitle className="text-sm font-medium text-gray-600">{stat.title}</CardTitle>
               <div className={`p-2 rounded-lg ${stat.bgColor}`}>
                 <stat.icon className={`h-4 w-4 ${stat.color}`} />
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-foreground">{stat.value}</div>
-              <p className="text-xs text-muted-foreground mt-1">{stat.description}</p>
+              <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
+              <p className="text-xs text-gray-500 mt-1">{stat.description}</p>
             </CardContent>
           </Card>
         ))}
@@ -74,12 +74,12 @@ export default function Dashboard() {
                 { date: "2024-01-14", description: "Sales Revenue", amount: "৳45,000" },
                 { date: "2024-01-13", description: "Equipment Purchase", amount: "৳15,000" },
               ].map((entry, index) => (
-                <div key={index} className="flex items-center justify-between p-3 bg-muted rounded-lg">
+                <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                   <div>
-                    <p className="font-medium text-foreground">{entry.description}</p>
-                    <p className="text-sm text-muted-foreground">{entry.date}</p>
+                    <p className="font-medium text-gray-900">{entry.description}</p>
+                    <p className="text-sm text-gray-500">{entry.date}</p>
                   </div>
-                  <span className="font-semibold text-foreground">{entry.amount}</span>
+                  <span className="font-semibold text-gray-900">{entry.amount}</span>
                 </div>
               ))}
             </div>
@@ -103,9 +103,9 @@ export default function Dashboard() {
                 <div key={index} className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
                     <div className={`w-3 h-3 rounded-full ${item.color}`}></div>
-                    <span className="text-foreground">{item.type}</span>
+                    <span className="text-gray-700">{item.type}</span>
                   </div>
-                  <span className="font-semibold text-foreground">{item.count}</span>
+                  <span className="font-semibold text-gray-900">{item.count}</span>
                 </div>
               ))}
             </div>
